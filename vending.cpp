@@ -54,23 +54,30 @@ void loadDFA(const string &filename) { //fungsi untuk membaca file konfigurasi [
             continue; //string 'Transitions' diabaikan [karena header]
         } 
         else if (!line.empty()) { //jika baris bukan header dan tidak kosong maka diproses sebagai transisi
-            istringstream iss(line); 
-            string fromState, inputSymbol, toState;
-            iss >> fromState >> inputSymbol >> toState;
+            istringstream iss(line); //membaca kata per kata dari sebuah string line
+            string fromState, inputSymbol, toState; //deklarasi variabel
+            
+            //membaca tiga data dari string line dan disimpan dalam tiga variabel berbeda
+            //fromState: menyimpan state asal [dari mana dfa berpindah]
+            //inputSymbol: input yang menyebabkan perubahan
+            //toState: state tujuan [ke mana dfa berpindah setelah menerima input]
+            iss >> fromState >> inputSymbol >> toState; 
+
+            //map yang menyimpan aturan perpindahan dfa [transisi]
             transitions[{fromState, inputSymbol}] = toState;
         }
     }
-    file.close();
+    file.close(); //file ditutup
 }
 
-bool isValidMoneyInput(const string &input) {
+bool isValidMoneyInput(const string &input) { //memastikan uang yang dimasukkan sesuai aturan
     return (input == "1000" || input == "2000" || input == "5000" || input == "10000");
 }
 
 int main() {
-    loadDFA("vending_dfa.txt");
+    loadDFA("vending_dfa.txt"); //memanggil fungsi loadDFA() dan diminta untuk membaca file vending_dfa.txt
 
-    string currentState = startState;
+    string currentState = startState; 
     vector<string> path;
     path.push_back(currentState);
 
@@ -81,7 +88,7 @@ int main() {
         cout << "Masukkan uang atau beli minuman (1000, 2000, 5000, 10000, A, B, C): ";
         cin >> input;
 
-        // Cek apakah input adalah tombol minuman
+        //cek apakah input adalah jenis minuman
         if (input == "A" || input == "B" || input == "C")
         {
             int harga = 0;
