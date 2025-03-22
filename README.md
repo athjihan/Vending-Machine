@@ -33,7 +33,6 @@ Pastikan sudah terdapat file berikut di directory:
 ---
 
 Untuk menjalankan program bonus case, langkah yang harus dilakukan sama (cukup ganti nama filenya saja)
-
 1. **Buka terminal baru** di direktori yang sama dengan file **bonus.cpp**.
 
 2. **Kompilasi program menggunakan g++:**
