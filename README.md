@@ -2,6 +2,8 @@
 
 Program ini dibuat menggunakan bahasa pemrograman **C++**. Untuk memastikan program berjalan dengan semestinya, harap perhatikan beberapa hal berikut sebelum menjalankan:
 
+---
+
 ### Persiapan File dan Folder
 Pastikan sudah terdapat file dan folder berikut di directory:
 1. **vending_dfa.txt** — definisi DFA (Deterministic Finite Automaton) untuk vending machine.
