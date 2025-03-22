@@ -32,7 +32,7 @@ Pastikan sudah terdapat file berikut di directory:
 ---
 
 ### Catatan Penting:
-- Pastikan file **vending_dfa.txt** berada dalam folder yang sama dengan file executable **vending.exe**, karena program akan membaca konfigurasi DFA dari file ini.
+- Pastikan file **vending_dfa.txt** berada dalam folder yang sama dengan file executable **vending.exe** karena program akan membaca konfigurasi DFA dari file ini.
 - Program ini hanya menerima input berupa:
   - **Uang kertas:** `1000`, `2000`, `5000`, `10000`
   - **Pilihan minuman:** `A`, `B`, `C`
