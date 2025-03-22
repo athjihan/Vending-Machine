@@ -76,22 +76,21 @@ bool isValidMoneyInput(const string &input) { //memastikan uang yang dimasukkan 
 
 int main() {
     loadDFA("vending_dfa.txt"); //memanggil fungsi loadDFA() dan diminta untuk membaca file vending_dfa.txt
+    string currentState = startState; //menginisialisasi state awal dfa 
+    vector<string> path; //vektor untuk menyimpan lintasan dfa selama transaksi
+    path.push_back(currentState);//menyimpan state awal
 
-    string currentState = startState; 
-    vector<string> path;
-    path.push_back(currentState);
-
-    string input;
+    string input; //menyimpan input berupa uang atau jenis minuman
     int total = 0;
 
-    while (true) {
+    while (true) { //loop utama yang memproses input dari pengguna
         cout << "Masukkan uang atau beli minuman (1000, 2000, 5000, 10000, A, B, C): ";
-        cin >> input;
+        cin >> input; 
 
         //cek apakah input adalah jenis minuman
-        if (input == "A" || input == "B" || input == "C")
-        {
+        if (input == "A" || input == "B" || input == "C") {
             int harga = 0;
+           
             if (input == "A")
                 harga = 3000;
             else if (input == "B")
@@ -100,7 +99,7 @@ int main() {
                 harga = 6000;
 
             cout << "Lintasan DFA: ";
-            for (size_t i = 0; i < path.size(); ++i) {
+            for (size_t i = 0; i < path.size(); ++i) { //mencetak lintasan dfa
                 cout << path[i];
                 if (i != path.size() - 1)
                     cout << " -> ";
@@ -111,31 +110,31 @@ int main() {
                 cout << "Minuman " << input << " dapat dibeli. Status: ACCEPTED." << endl;
             } else if (total < harga) {
                 cout << "Uang tidak cukup. Status: REJECTED." << endl;
-            } else {
+            } else { // kasus asli: kondisi dimana uang != harga minuman [lebih]
                 cout << "Uang lebih dari harga minuman. Status: REJECTED." << endl;
-            }  break; // Selesai transaksi
+            }  break; //transaksi berakhir
         }
 
-        // Validasi input uang
-        if (!isValidMoneyInput(input)) {
+        if (!isValidMoneyInput(input)) {  //validasi input uang 
             cout << "Input tidak valid! Hanya menerima: 1000, 2000, 5000, 10000, A, B, C." << endl;
             continue;
         }
 
-        int uangMasuk = stoi(input);
+        int uangMasuk = stoi(input); //mengubah input uang yang berupa string menjadi int 
         if (total + uangMasuk > 10000) {
             cout << "Total uang melebihi Rp10000. Transaksi tidak diterima." << endl;
             break;
         }
 
-        // Transisi DFA
-        if (transitions.find({currentState, input}) != transitions.end()) {
-            currentState = transitions[{currentState, input}];
-            path.push_back(currentState);
-            total += uangMasuk;
+        //proses transisi dfa
+        if (transitions.find({currentState, input}) != transitions.end()) { 
+        //cek kondisi apakah ada transisi yang sesuai dengan aturan dfa berdasarkan state saat ini dan input
+            currentState = transitions[{currentState, input}]; //melakukan update pada 'state saat ini'
+            path.push_back(currentState); //menyimpan state baru ke dalam path
+            total += uangMasuk; //jumlah total uang yang telah diinput pengguna
             cout << "Uang total: Rp" << total << endl;
 
-            if (uangMasuk >= 0) { // Hanya cek ON kalau habis masukin uang
+            if (uangMasuk >= 0) { //menampilkan jenis minuman yang dapat dibeli berdasarkan total uang pengguna
                 if (total >= 6000)
                     cout << "ON: Minuman A, Minuman B, Minuman C" << endl;
                 else if (total >= 4000)
@@ -144,7 +143,7 @@ int main() {
                     cout << "ON: Minuman A" << endl;
             }
         }
-        else {
+        else { //bekerja ketika kondisi input tidak valid
             cout << "Transisi tidak valid. Tidak bisa memproses lebih dari Rp10000." << endl;
             break;
         }
