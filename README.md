@@ -30,9 +30,11 @@ Pastikan sudah terdapat file berikut di directory:
    ./vending
    ```
    Perintah ini akan menjalankan program sehingga sekarang user sudah bisa memberikan input yang sesuai dengan aturan.
+---
 
+### Prosedur Menjalankan Bonus Case
+Untuk menjalankan program bonus case, langkah yang harus dilakukan sama (cukup ganti nama filenya saja).
 
-Untuk menjalankan program bonus case, langkah yang harus dilakukan sama (cukup ganti nama filenya saja)
 1. **Buka terminal baru** di direktori yang sama dengan file **bonus.cpp**.
 
 2. **Kompilasi program menggunakan g++:**
