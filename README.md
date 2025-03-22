@@ -8,8 +8,8 @@ Program ini dibuat menggunakan bahasa pemrograman **C++**. Untuk memastikan prog
 Pastikan sudah terdapat file dan folder berikut di directory:
 1. **vending_dfa.txt** — definisi DFA (Deterministic Finite Automaton) untuk vending machine.
 2. **vending.cpp** — file kode program utama.
-3. **.vscode/** folder — folder akan terbuat otomatis ketika kita klik run & debug.
-   - **tasks.json** — untuk automasi compile/run command.
+3. **.vscode/** folder — folder akan terbuat otomatis ketika kita klik run & debug di file vending.cpp.
+   - **tasks.json** — digenerate di dalam folder untuk automasi compile/run command.
 4. **vending.exe** — file ini akan terbuat secara otomatis setelah file vending.cpp dikompilasi.
 
 ---
