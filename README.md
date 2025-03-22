@@ -4,13 +4,10 @@ Program ini dibuat menggunakan bahasa pemrograman **C++**. Untuk memastikan prog
 
 ---
 
-### Persiapan File dan Folder
-Pastikan sudah terdapat file dan folder berikut di directory:
+### Persiapan File
+Pastikan sudah terdapat file berikut di directory:
 1. **vending_dfa.txt** — definisi DFA (Deterministic Finite Automaton) untuk vending machine.
 2. **vending.cpp** — file kode program utama.
-3. **.vscode/** folder — folder akan terbuat otomatis ketika kita klik run & debug di file vending.cpp.
-   - **tasks.json** — digenerate di dalam folder untuk automasi compile/run command.
-4. **vending.exe** — file ini akan terbuat secara otomatis setelah file vending.cpp dikompilasi.
 
 ---
 
@@ -24,18 +21,18 @@ Pastikan sudah terdapat file dan folder berikut di directory:
    g++ vending.cpp -o vending
    ```
 
-   Perintah ini akan meng-compile file `vending.cpp` menjadi file executable bernama `vending` (hasilnya di direktori seharusnya/biasanya bernama `vending.exe`).
+   Perintah ini akan meng-compile file `vending.cpp` menjadi file executable bernama `vending`. Proses kompilasi ini akan menghasilkan file bernama **vending.exe** secara      otomatis.
 
 3. **Jalankan program:**
 
    ```bash
    ./vending
    ```
-
+   Perintah ini akan menjalankan program sehingga sekarang user sudah bisa memberikan input yang sesuai dengan aturan.
 ---
 
 ### Catatan Penting:
-- Pastikan file **vending_dfa.txt** berada dalam folder yang sama dengan file executable, karena program akan membaca konfigurasi DFA dari file ini.
+- Pastikan file **vending_dfa.txt** berada dalam folder yang sama dengan file executable **vending.exe**, karena program akan membaca konfigurasi DFA dari file ini.
 - Program ini hanya menerima input berupa:
   - **Uang kertas:** `1000`, `2000`, `5000`, `10000`
   - **Pilihan minuman:** `A`, `B`, `C`
@@ -45,4 +42,4 @@ Pastikan sudah terdapat file dan folder berikut di directory:
 ---
 
 ### Kesimpulan
-Dengan mengikuti langkah-langkah di atas, program vending machine ini seharusnya dapat dijalankan dengan mudah dan tidak ada error.
+Dengan mengikuti langkah-langkah di atas, program vending machine ini seharusnya dapat dijalankan tanpa ada error.
